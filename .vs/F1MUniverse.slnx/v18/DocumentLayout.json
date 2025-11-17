@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\lucas\\source\\repos\\F1MUniverse\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D0FC7D4F-8E4E-7E74-D546-1B2DDD5707C0}|F1MUniverse\\F1MUniverse.csproj|c:\\users\\lucas\\source\\repos\\f1muniverse\\f1muniverse\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{D0FC7D4F-8E4E-7E74-D546-1B2DDD5707C0}|F1MUniverse\\F1MUniverse.csproj|solutionrelative:f1muniverse\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0FC7D4F-8E4E-7E74-D546-1B2DDD5707C0}|F1MUniverse\\F1MUniverse.csproj|c:\\users\\lucas\\source\\repos\\f1muniverse\\f1muniverse\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0FC7D4F-8E4E-7E74-D546-1B2DDD5707C0}|F1MUniverse\\F1MUniverse.csproj|solutionrelative:f1muniverse\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0FC7D4F-8E4E-7E74-D546-1B2DDD5707C0}|F1MUniverse\\F1MUniverse.csproj|c:\\users\\lucas\\source\\repos\\f1muniverse\\f1muniverse\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D0FC7D4F-8E4E-7E74-D546-1B2DDD5707C0}|F1MUniverse\\F1MUniverse.csproj|solutionrelative:f1muniverse\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\lucas\\source\\repos\\F1MUniverse\\F1MUniverse\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "F1MUniverse\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\lucas\\source\\repos\\F1MUniverse\\F1MUniverse\\MainWindow.xaml",
+              "RelativeToolTip": "F1MUniverse\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-17T12:53:40.699Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\source\\repos\\F1MUniverse\\F1MUniverse\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "F1MUniverse\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\lucas\\source\\repos\\F1MUniverse\\F1MUniverse\\MainWindow.xaml.cs*",
+              "RelativeToolTip": "F1MUniverse\\MainWindow.xaml.cs*",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAuwLsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T15:53:31.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\lucas\\source\\repos\\F1MUniverse\\F1MUniverse\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "F1MUniverse\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\lucas\\source\\repos\\F1MUniverse\\F1MUniverse\\MainWindow.xaml",
+              "RelativeToolTip": "F1MUniverse\\MainWindow.xaml",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAuwKUAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-17T16:53:05.874Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
