@@ -1,0 +1,16 @@
+<Window x:Class="F1MUniverse.ContractsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Contracts"
+        Height="450"
+        Width="800"
+        WindowStartupLocation="CenterOwner"
+        Background="#202020">
+    <Grid>
+        <Label Content="Contracts"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="28"
+               Foreground="White"/>
+    </Grid>
+</Window>
