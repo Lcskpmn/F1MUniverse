@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 
 namespace F1MUniverse
 {
@@ -30,26 +29,6 @@ namespace F1MUniverse
 
         private void InitializeSampleData()
         {
-            // F1 2025 sample
-            _sampleStandings[("F1", 2025)] = new List<StandingRow>
-            {
-                new() { Position = 1, Driver = "Max Verstappen", Team = "Red Bull Racing", Points = 395 },
-                new() { Position = 2, Driver = "Lando Norris",    Team = "McLaren",        Points = 325 },
-                new() { Position = 3, Driver = "Charles Leclerc", Team = "Ferrari",        Points = 310 },
-                new() { Position = 4, Driver = "Oscar Piastri",   Team = "McLaren",        Points = 280 },
-                new() { Position = 5, Driver = "George Russell",  Team = "Mercedes",       Points = 245 },
-            };
-
-            // F2 2025 sample
-            _sampleStandings[("F2", 2025)] = new List<StandingRow>
-            {
-                new() { Position = 1, Driver = "Andrea Kimi Antonelli", Team = "Prema",   Points = 230 },
-                new() { Position = 2, Driver = "Gabriel Bortoleto",     Team = "Invicta", Points = 210 },
-                new() { Position = 3, Driver = "Isack Hadjar",          Team = "Campos",  Points = 198 },
-                new() { Position = 4, Driver = "Oliver Bearman",        Team = "Prema",   Points = 184 },
-                new() { Position = 5, Driver = "Pepe Martí",            Team = "MP",      Points = 170 },
-            };
-
             // F3 2025 sample
             _sampleStandings[("F3", 2025)] = new List<StandingRow>
             {
@@ -58,6 +37,11 @@ namespace F1MUniverse
                 new() { Position = 3, Driver = "N. León",           Team = "MP",       Points = 186 },
                 new() { Position = 4, Driver = "U. Ugochukwu",      Team = "Prema",    Points = 175 },
                 new() { Position = 5, Driver = "C. Stenshorne",     Team = "Hitech",   Points = 160 },
+                new() { Position = 6, Driver = "J. Edgar",          Team = "ART",      Points = 148 },
+                new() { Position = 7, Driver = "A. Lindblad",       Team = "Prema",    Points = 139 },
+                new() { Position = 8, Driver = "L. Browning",       Team = "Hitech",   Points = 120 },
+                new() { Position = 9, Driver = "S. Flörsch",        Team = "Van Amersfoort", Points = 112 },
+                new() { Position = 10, Driver = "T. Barnard",       Team = "Jenzer",   Points = 104 },
             };
 
             // You can add more seasons later:
@@ -73,16 +57,21 @@ namespace F1MUniverse
             ContentBodyText.Text = "Choose a section on the left to get started (Standings or Contracts).";
 
             StandingsFilterPanel.Visibility = Visibility.Collapsed;
-            ContentHost.Content = null;
+            StandingsDataGrid.Visibility = Visibility.Collapsed;
+            StandingsEmptyStateText.Visibility = Visibility.Collapsed;
         }
 
         private void StandingsButton_Click(object sender, RoutedEventArgs e)
         {
             TopTitleText.Text = "Standings";
-            ContentTitleText.Text = "Standings";
-            ContentBodyText.Text = "Example data – later this will come from your F1/F2/F3 save/database.";
+            ContentTitleText.Text = "F3 2025 Standings";
+            ContentBodyText.Text = "Using the design doc example data so you can preview how the standings layout will look.";
 
             StandingsFilterPanel.Visibility = Visibility.Visible;
+
+            // Default the filters to the dataset defined in the design doc
+            SeriesComboBox.SelectedIndex = 2; // F3
+            SeasonComboBox.SelectedIndex = 1; // 2025
 
             LoadStandings();
         }
@@ -94,7 +83,8 @@ namespace F1MUniverse
             ContentBodyText.Text = "Later we will show all driver and staff contracts here.";
 
             StandingsFilterPanel.Visibility = Visibility.Collapsed;
-            ContentHost.Content = null;
+            StandingsDataGrid.Visibility = Visibility.Collapsed;
+            StandingsEmptyStateText.Visibility = Visibility.Collapsed;
         }
 
         // ---- Filters changed ----
@@ -136,63 +126,15 @@ namespace F1MUniverse
             // Get data for this (series, season)
             if (!_sampleStandings.TryGetValue((series, season), out var rows))
             {
-                ContentHost.Content = new TextBlock
-                {
-                    Text = $"No sample data yet for {series} {season}.",
-                    Foreground = System.Windows.Media.Brushes.White,
-                    Margin = new Thickness(0, 8, 0, 0)
-                };
+                StandingsDataGrid.Visibility = Visibility.Collapsed;
+                StandingsEmptyStateText.Text = $"No sample data yet for {series} {season}.";
+                StandingsEmptyStateText.Visibility = Visibility.Visible;
                 return;
             }
 
-            // Build the DataGrid
-            var grid = new DataGrid
-            {
-                AutoGenerateColumns = false,
-                CanUserAddRows = false,
-                CanUserDeleteRows = false,
-                IsReadOnly = true,
-                HeadersVisibility = DataGridHeadersVisibility.Column,
-                Margin = new Thickness(0, 8, 0, 0),
-                GridLinesVisibility = DataGridGridLinesVisibility.None,
-                RowBackground = System.Windows.Media.Brushes.Transparent,
-                AlternatingRowBackground = System.Windows.Media.Brushes.Transparent,
-                Background = System.Windows.Media.Brushes.Transparent,
-                BorderThickness = new Thickness(0),
-                Foreground = System.Windows.Media.Brushes.White
-            };
-
-            grid.Columns.Add(new DataGridTextColumn
-            {
-                Header = "#",
-                Binding = new Binding(nameof(StandingRow.Position)),
-                Width = 40
-            });
-
-            grid.Columns.Add(new DataGridTextColumn
-            {
-                Header = "Driver",
-                Binding = new Binding(nameof(StandingRow.Driver)),
-                Width = new DataGridLength(2, DataGridLengthUnitType.Star)
-            });
-
-            grid.Columns.Add(new DataGridTextColumn
-            {
-                Header = "Team",
-                Binding = new Binding(nameof(StandingRow.Team)),
-                Width = new DataGridLength(2, DataGridLengthUnitType.Star)
-            });
-
-            grid.Columns.Add(new DataGridTextColumn
-            {
-                Header = "Points",
-                Binding = new Binding(nameof(StandingRow.Points)),
-                Width = 80
-            });
-
-            grid.ItemsSource = rows;
-
-            ContentHost.Content = grid;
+            StandingsDataGrid.ItemsSource = rows;
+            StandingsDataGrid.Visibility = Visibility.Visible;
+            StandingsEmptyStateText.Visibility = Visibility.Collapsed;
         }
     }
 }
