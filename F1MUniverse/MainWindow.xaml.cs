@@ -32,19 +32,19 @@ namespace F1MUniverse
             // F3 2025 sample
             _sampleStandings[("F3", 2025)] = new List<StandingRow>
             {
-                new() { Position = 1, Driver = "T. Naël",           Team = "Prema",    Points = 210 },
-                new() { Position = 2, Driver = "M. Boya",           Team = "Campos",   Points = 195 },
-                new() { Position = 3, Driver = "N. León",           Team = "MP",       Points = 186 },
-                new() { Position = 4, Driver = "U. Ugochukwu",      Team = "Prema",    Points = 175 },
-                new() { Position = 5, Driver = "C. Stenshorne",     Team = "Hitech",   Points = 160 },
-                new() { Position = 6, Driver = "J. Edgar",          Team = "ART",      Points = 148 },
-                new() { Position = 7, Driver = "A. Lindblad",       Team = "Prema",    Points = 139 },
-                new() { Position = 8, Driver = "L. Browning",       Team = "Hitech",   Points = 120 },
-                new() { Position = 9, Driver = "S. Flörsch",        Team = "Van Amersfoort", Points = 112 },
-                new() { Position = 10, Driver = "T. Barnard",       Team = "Jenzer",   Points = 104 },
+                new() { Position = 1,  Driver = "T. Naël",       Team = "Prema",          Points = 210 },
+                new() { Position = 2,  Driver = "M. Boya",       Team = "Campos",         Points = 195 },
+                new() { Position = 3,  Driver = "N. León",       Team = "MP",             Points = 186 },
+                new() { Position = 4,  Driver = "U. Ugochukwu",  Team = "Prema",          Points = 175 },
+                new() { Position = 5,  Driver = "C. Stenshorne", Team = "Hitech",         Points = 160 },
+                new() { Position = 6,  Driver = "J. Edgar",      Team = "ART",            Points = 148 },
+                new() { Position = 7,  Driver = "A. Lindblad",   Team = "Prema",          Points = 139 },
+                new() { Position = 8,  Driver = "L. Browning",   Team = "Hitech",         Points = 120 },
+                new() { Position = 9,  Driver = "S. Flörsch",    Team = "Van Amersfoort", Points = 112 },
+                new() { Position = 10, Driver = "T. Barnard",    Team = "Jenzer",         Points = 104 },
             };
 
-            // You can add more seasons later:
+            // Later kun je hier extra combo's toevoegen, bijv:
             // _sampleStandings[("F1", 2024)] = new List<StandingRow> { ... };
         }
 
@@ -56,6 +56,7 @@ namespace F1MUniverse
             ContentTitleText.Text = "Welcome!";
             ContentBodyText.Text = "Choose a section on the left to get started (Standings or Contracts).";
 
+            // Alles dat specifiek voor Standings is verbergen
             StandingsFilterPanel.Visibility = Visibility.Collapsed;
             StandingsDataGrid.Visibility = Visibility.Collapsed;
             StandingsEmptyStateText.Visibility = Visibility.Collapsed;
@@ -69,7 +70,7 @@ namespace F1MUniverse
 
             StandingsFilterPanel.Visibility = Visibility.Visible;
 
-            // Default the filters to the dataset defined in the design doc
+            // Default de filters naar de dataset uit het design doc
             SeriesComboBox.SelectedIndex = 2; // F3
             SeasonComboBox.SelectedIndex = 1; // 2025
 
@@ -78,10 +79,13 @@ namespace F1MUniverse
 
         private void ContractsButton_Click(object sender, RoutedEventArgs e)
         {
+            // Geen apart window meer – we wisselen gewoon de content in dit hoofdvenster
             TopTitleText.Text = "Contracts";
             ContentTitleText.Text = "Contracts";
-            ContentBodyText.Text = "Later we will show all driver and staff contracts here.";
+            ContentBodyText.Text =
+                "Placeholder for the contracts screen. Here you will be able to view and edit driver and staff contracts for F1 / F2 / F3.";
 
+            // Standings-specifieke UI verbergen
             StandingsFilterPanel.Visibility = Visibility.Collapsed;
             StandingsDataGrid.Visibility = Visibility.Collapsed;
             StandingsEmptyStateText.Visibility = Visibility.Collapsed;
@@ -91,7 +95,7 @@ namespace F1MUniverse
 
         private void SeriesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Only reload if we are on the Standings screen
+            // Alleen herladen als we op de Standings-pagina zitten
             if (TopTitleText.Text == "Standings")
             {
                 LoadStandings();
@@ -110,7 +114,7 @@ namespace F1MUniverse
 
         private void LoadStandings()
         {
-            // Read selected series (F1/F2/F3)
+            // Read selected series (F1/F2/F3) en season
             if (SeriesComboBox.SelectedItem is not ComboBoxItem seriesItem ||
                 SeasonComboBox.SelectedItem is not ComboBoxItem seasonItem)
             {
@@ -138,3 +142,4 @@ namespace F1MUniverse
         }
     }
 }
+

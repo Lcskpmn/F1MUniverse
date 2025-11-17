@@ -17,3 +17,4 @@ C:\Users\lucas\source\repos\F1MUniverse\F1MUniverse\obj\Debug\net8.0-windows\ref
 C:\Users\lucas\source\repos\F1MUniverse\F1MUniverse\obj\Debug\net8.0-windows\F1MUniverse.pdb
 C:\Users\lucas\source\repos\F1MUniverse\F1MUniverse\obj\Debug\net8.0-windows\F1MUniverse.genruntimeconfig.cache
 C:\Users\lucas\source\repos\F1MUniverse\F1MUniverse\obj\Debug\net8.0-windows\ref\F1MUniverse.dll
+C:\Users\lucas\source\repos\F1MUniverse\F1MUniverse\obj\Debug\net8.0-windows\F1MUniverse.sourcelink.json

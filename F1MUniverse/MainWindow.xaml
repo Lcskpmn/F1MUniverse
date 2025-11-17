@@ -9,6 +9,7 @@
 
     <!-- Styles / theme -->
     <Window.Resources>
+
         <!-- Left navigation button style -->
         <Style x:Key="NavButtonStyle" TargetType="Button">
             <Setter Property="Margin" Value="0,4,0,4"/>
@@ -26,7 +27,7 @@
                                 CornerRadius="6">
                             <ContentPresenter Margin="4"
                                               HorizontalAlignment="Left"
-                                              VerticalAlignment="Center"/>
+                                              VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
@@ -59,15 +60,18 @@
             <Setter Property="Padding" Value="4,0"/>
         </Style>
 
-        <Style x:Key="StandingsCenterCellTextStyle" TargetType="TextBlock"
+        <Style x:Key="StandingsCenterCellTextStyle"
+               TargetType="TextBlock"
                BasedOn="{StaticResource StandingsCellTextStyle}">
             <Setter Property="TextAlignment" Value="Center"/>
         </Style>
 
-        <Style x:Key="StandingsRightCellTextStyle" TargetType="TextBlock"
+        <Style x:Key="StandingsRightCellTextStyle"
+               TargetType="TextBlock"
                BasedOn="{StaticResource StandingsCellTextStyle}">
             <Setter Property="TextAlignment" Value="Right"/>
         </Style>
+
     </Window.Resources>
 
     <!-- Main layout: left menu, right content -->
@@ -82,15 +86,17 @@
         <!-- LEFT SIDEBAR -->
         <DockPanel Grid.Column="0" Background="#181818">
             <!-- Logo / title at the top -->
-            <Border Background="#1F1F1F" Padding="16" DockPanel.Dock="Top">
+            <Border Background="#1F1F1F"
+                    Padding="16"
+                    DockPanel.Dock="Top">
                 <StackPanel>
                     <TextBlock Text="F1MUniverse"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#FFFFFF"/>
                     <TextBlock Text="Save &amp; DB editor"
-           FontSize="12"
-           Foreground="#9E9E9E"/>
+                               FontSize="12"
+                               Foreground="#9E9E9E"/>
                 </StackPanel>
             </Border>
 
@@ -114,7 +120,8 @@
                         Content="📅 Calendar (later)"
                         IsEnabled="False"/>
 
-                <Separator Margin="0,16,0,8" Background="#333"/>
+                <Separator Margin="0,16,0,8"
+                           Background="#333"/>
 
                 <TextBlock Text="OTHER"
                            Margin="4,0,0,8"
@@ -162,6 +169,7 @@
                         CornerRadius="10"
                         Padding="16">
                     <StackPanel x:Name="ContentStackPanel">
+
                         <!-- Title + description -->
                         <TextBlock x:Name="ContentTitleText"
                                    Text="Welcome!"
@@ -208,7 +216,7 @@
                             </ComboBox>
                         </StackPanel>
 
-                        <!-- Here we place the DataGrid or other content -->
+                        <!-- Main content grid (standings table etc.) -->
                         <Grid x:Name="ContentGrid">
                             <TextBlock x:Name="StandingsEmptyStateText"
                                        Text="Select a series and season to view the standings."
@@ -266,6 +274,7 @@
                                                         ElementStyle="{StaticResource StandingsRightCellTextStyle}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
+
                         </Grid>
                     </StackPanel>
                 </Border>
