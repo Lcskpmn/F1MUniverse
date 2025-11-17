@@ -148,6 +148,15 @@ Settings (later)
 
 Future: Drivers, Teams, Records, Performance, etc.
 
+### 4.3 Screen hosting rules
+
+- All main sections (Standings, Contracts, Calendar, Settings, etc.) are shown **inside the main content area of MainWindow**.
+- Do NOT open separate windows for these sections.
+- Implementation suggestion:
+  - Use separate UserControls (e.g. `StandingsView`, `ContractsView`) under a `Views` folder.
+  - MainWindow hosts a single content container (e.g. a `ContentControl`) and swaps the active UserControl when a sidebar button is clicked.
+
+
 5. Standings Screen (Current Implementation)
 5.1 UI Elements
 
